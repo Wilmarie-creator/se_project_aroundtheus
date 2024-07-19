@@ -39,3 +39,9 @@
   display: flex;
   border: none;
 }
+
+@media screen and (max-width: 382px) {
+  .card {
+    display: grid;
+  }
+}

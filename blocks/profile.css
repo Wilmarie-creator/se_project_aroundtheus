@@ -66,3 +66,33 @@
   overflow: hidden;
   max-width: 373px;
 }
+
+@media screen and (max-width: 382px) {
+  .profile {
+    flex-direction: column;
+    width: 282px;
+    padding: 20px;
+    margin: 0 12px;
+    /* background-color: pink; */
+  }
+
+  .profile__title {
+    font-family: "Inter", Arial, Sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.21;
+    text-align: center;
+  }
+
+  .profile__description {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile__add-button {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 282px;
+  }
+}
