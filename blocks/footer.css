@@ -10,18 +10,21 @@
   color: #545454;
   margin: 0 auto;
   width: 318px;
-  padding: 67px 0 0px;
+  padding: 60px 0 0px;
   position: relative;
 }
 @media screen and (max-width: 382px) {
   .footer {
+    display: flex;
     margin: auto 19px 36px 19px;
   }
   .footer__copyright {
-    width: 282px;
+    width: 100%;
     font-size: 14px;
     line-height: 1.21;
-    padding-top: 50px;
-    margin: 0;
+    margin-top: 48px;
+    margin-bottom: 36px;
+    padding: 0;
+    max-width: 320;
   }
 }

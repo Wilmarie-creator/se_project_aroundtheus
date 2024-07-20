@@ -8,10 +8,10 @@
       330px*/
   margin-top: 51px;
   font-family: "Inter", Arial, sans-serif;
-  font-weight: 900px;
+  font-weight: 900;
   line-height: 29.05px;
   border-radius: 10px 10px 0 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .cards__list {
