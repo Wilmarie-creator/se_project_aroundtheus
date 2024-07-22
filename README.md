@@ -21,6 +21,10 @@ The way you'll do this at work is by exporting images directly from Figma — we
 Good luck and have fun!
 
 Project 3- Around The U.S.
-A webpage illustrating places visited by the Explorer Jacques Cousteau.
-Some of the technologies used while creating this webpage were Figma, Vs code, html in BEM file structure, css styles separated in corresponding blocks. In order to created the layout grid and flex display's were used along with hover state action on the buttons to increase the webpage's responsiveness.
+This project was about creating a webpage illustrating places visited by the Explorer Jacques Cousteau.
+Some of the technologies used while creating this webpage were Figma design, Vs code, html in BEM file structure, css styles separated in corresponding blocks. In order to created the layout grid and flex display's were used along with hover state action on the buttons. To increase the webpage's responsiveness @mediaqueries declarations were used a different max-width to accomadate different devices a user may use to access the webpage.
 git@github.com:Wilmarie-creator/se_project_aroundtheus.git
+https://wilmarie-creator.github.io/se_project_aroundtheus/
+
+Project Video
+https://drive.google.com/file/d/1aIMSJYV2KwEAG1TP6Z4JDtxhI2ggdCbS/view?usp=sharing

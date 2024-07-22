@@ -1,5 +1,10 @@
 .footer {
-  margin: auto 762px 60px 200px;
+  display: flex;
+  max-width: 880px;
+  text-align: center;
+  /* margin: auto 762px 60px 200px; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer__copyright {
@@ -9,7 +14,7 @@
   line-height: 1.2;
   color: #545454;
   margin: 0 auto;
-  width: 318px;
+  /* width: 318px; */
   padding: 60px 0 0px;
   position: relative;
 }
@@ -25,6 +30,6 @@
     margin-top: 48px;
     margin-bottom: 36px;
     padding: 0;
-    max-width: 320;
+    max-width: 318px;
   }
 }
