@@ -1,10 +1,11 @@
 .footer {
   display: flex;
   max-width: 880px;
-  text-align: center;
+  /* text-align: center; */
   /* margin: auto 762px 60px 200px; */
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 .footer__copyright {
@@ -13,7 +14,6 @@
   font-size: 18px;
   line-height: 1.2;
   color: #545454;
-  margin: 0 auto;
   /* width: 318px; */
   padding: 60px 0 0px;
   position: relative;
@@ -31,5 +31,19 @@
     margin-bottom: 36px;
     padding: 0;
     max-width: 318px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .footer {
+    margin: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    /* margin: 0; */
+    font-size: 14px;
+    padding: 0 19px;
+    width: 100%;
   }
 }
