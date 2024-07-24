@@ -18,10 +18,16 @@
   padding: 60px 0 0px;
   position: relative;
 }
+
+@media screen and (max-width: 900px) {
+  .footer {
+    margin: 0;
+  }
+}
 @media screen and (max-width: 382px) {
   .footer {
     display: flex;
-    margin: auto 19px 36px 19px;
+    /* margin: auto 19px 36px 19px; */
   }
   .footer__copyright {
     width: 100%;
@@ -33,16 +39,10 @@
     max-width: 318px;
   }
 }
-@media screen and (max-width: 900px) {
-  .footer {
-    margin: 0;
-    width: 100%;
-  }
-}
+
 @media screen and (max-width: 320px) {
   .footer__copyright {
     /* margin: 0; */
-    font-size: 14px;
     padding: 0 19px;
     width: 100%;
   }
