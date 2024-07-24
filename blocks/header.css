@@ -7,12 +7,7 @@
   /* padding: 0 20px; */
   /* height: 74px; */
 }
-.header__logo {
-  width: 126px;
-  padding-bottom: 27px;
-  padding-left: 27px;
-  height: 24px;
-}
+
 @media screen and (max-width: 391px) {
   .header {
     display: flex;
@@ -28,8 +23,6 @@
     /* margin-right: 0 84px; */
     /* padding: 0; */
   }
-}
-.header__logo {
   .header__logo {
     width: 126px;
     padding-bottom: 27px;
