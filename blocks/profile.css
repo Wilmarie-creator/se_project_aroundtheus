@@ -21,7 +21,7 @@
   /* grid-template-columns: minmax(auto, 375px) auto; */
   column-gap: 14px;
   padding-left: 30px;
-  padding-top: 40px;
+  /* padding-top: 40px; */
 }
 .profile__edit-button {
   display: flex;
@@ -81,7 +81,7 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 373px;
-  padding-bottom: 36px;
+  /* padding-bottom: 36px; */
   align-self: center;
 }
 
@@ -95,7 +95,7 @@
   }
 
   .profile__title {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
 
@@ -110,20 +110,21 @@
   .profile__title {
     font-size: 22px;
     line-height: 1.21;
-    padding-bottom: 36px;
+    padding-bottom: 14px;
   }
   .profile__description {
     font-size: 14px;
     line-height: 1.21;
     margin: 0 auto;
     gap: 10px;
+    padding-bottom: 36px;
   }
 
   .profile__edit-button {
     width: 18px;
     height: 18px;
     padding-right: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
   }
   .profile__add-button {
     margin: 0;
