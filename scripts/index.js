@@ -31,3 +31,29 @@ const initialCards = [
 ];
 
 console.log(initialCards);
+
+/* -------------------------------------------------------------------------- */
+/*                                Elements DOM                                */
+/* -------------------------------------------------------------------------- */
+
+const profileEditButton = document.querySelector("#profile-edit-button");
+const profileEditModal = document.querySelector("#profile-edit-modal");
+// const profileCloseModal = document.querySelector("#profile-close-modal");
+
+const editModal = document.querySelector("#profile-edit-modal");
+const editModalClose = editModal.querySelector(".modal__close");
+/* -------------------------------------------------------------------------- */
+/*                               EventListeners                               */
+/* -------------------------------------------------------------------------- */
+
+editModalClose.addEventListener("click", () => {
+  profileEditModal.classList.remove("modal_opened");
+});
+
+profileEditButton.addEventListener("click", () => {
+  profileEditModal.classList.add("modal_opened");
+});
+
+// profileEditCloseButton.addEventListener("click", () => {
+//   profileCloseModal.classList.remove("modal_opened");
+// });
