@@ -8,13 +8,13 @@
   background-color: rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 20;
   display: none;
   max-width: 1280px;
   /* height: 720px; */
 }
 
-.modal_opened {
+.modal__opened {
   display: flex;
 }
 
@@ -104,6 +104,10 @@
   cursor: pointer;
   background-color: #000;
   color: #fff;
+}
+
+.modal__button:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 662px) {

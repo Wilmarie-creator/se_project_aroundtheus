@@ -1,3 +1,7 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Cards                                   */
+/* -------------------------------------------------------------------------- */
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -30,28 +34,61 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
-
 /* -------------------------------------------------------------------------- */
 /*                                Elements DOM                                */
 /* -------------------------------------------------------------------------- */
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-// const profileCloseModal = document.querySelector("#profile-close-modal");
+const profileCloseModal = profileEditModal.querySelector(".modal__close");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
 
-const editModal = document.querySelector("#profile-edit-modal");
-const editModalClose = editModal.querySelector(".modal__close");
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+// const profileSaveButton = profileEditForm.querySelector("#save-button");
+
+function closePopop() {
+  profileEditModal.classList.remove("modal__opened");
+  console.log("sunny");
+}
+
+const modalForm = profileEditModal.querySelector(".modal__form");
+
+// const editModal = document.querySelector("#profile-edit-modal");
+// const editModalClose = editModal.querySelector(".modal__close");
 /* -------------------------------------------------------------------------- */
 /*                               EventListeners                               */
 /* -------------------------------------------------------------------------- */
 
-editModalClose.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal_opened");
+//**** I added this code below because the save button was not closing with the hopes code will help close modal//
+// modalForm.addEventListener("click", (event) => {
+//   event.stopPropagation();
+// });
+
+profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+  profileEditModal.classList.add("modal__opened");
+});
+
+profileEditModal.addEventListener("click", () => {
+  closePopop();
+});
+
+profileEditForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closePopop();
+  console.log("hello");
 });
 
 profileEditButton.addEventListener("click", () => {
-  profileEditModal.classList.add("modal_opened");
+  closePopop();
 });
 
 // profileEditCloseButton.addEventListener("click", () => {
