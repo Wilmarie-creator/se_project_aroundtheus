@@ -48,49 +48,58 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
+const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const modalForm = profileEditModal.querySelector(".modal__form");
 // const profileSaveButton = profileEditForm.querySelector("#save-button");
+const cardsListELement = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
 
-function closePopop() {
-  profileEditModal.classList.remove("modal__opened");
-  console.log("sunny");
+/* -------------------------------------------------------------------------- */
+/*                                  Functions                                 */
+/* -------------------------------------------------------------------------- */
+function closePopup() {
+  profileEditModal.classList.remove("modal_opened");
+  console.log("close");
 }
 
-const modalForm = profileEditModal.querySelector(".modal__form");
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageElement = cardElement.querySelector(".card__image");
+  const cardTitleElement = cardElement.querySelector(".card__title");
+  cardImageElement.src = cardData.link;
+  cardImageElement.alt = cardData.name;
+  cardTitleElement.textContent = cardData.name;
+  return cardElement;
+}
 
-// const editModal = document.querySelector("#profile-edit-modal");
-// const editModalClose = editModal.querySelector(".modal__close");
+/* -------------------------------------------------------------------------- */
+/*                                Event Handler                               */
+/* -------------------------------------------------------------------------- */
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closePopup();
+}
 /* -------------------------------------------------------------------------- */
 /*                               EventListeners                               */
 /* -------------------------------------------------------------------------- */
 
-//**** I added this code below because the save button was not closing with the hopes code will help close modal//
-// modalForm.addEventListener("click", (event) => {
-//   event.stopPropagation();
-// });
-
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal__opened");
+  profileEditModal.classList.add("modal_opened");
 });
 
-profileEditModal.addEventListener("click", () => {
-  closePopop();
+profileEditCloseButton.addEventListener("click", (e) => {
+  closePopup();
 });
 
-profileEditForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopop();
-  console.log("hello");
-});
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-profileEditButton.addEventListener("click", () => {
-  closePopop();
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardsListELement.prepend(cardElement);
 });
-
-// profileEditCloseButton.addEventListener("click", () => {
-//   profileCloseModal.classList.remove("modal_opened");
-// });

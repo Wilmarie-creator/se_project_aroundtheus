@@ -14,7 +14,7 @@
   /* height: 720px; */
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
