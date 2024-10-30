@@ -42,25 +42,56 @@
         <p class="footer__copyright">© 2022 Around The U.S.</p>
       </footer>
     </div>
+    <!-- Edit Modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" type="button"></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form">
-          <input
-            type="text"
-            class="modal__input"
-            id="profile-title-input"
-            placeholder="Name"
-            name="title"
-          />
-          <input
-            type="text"
-            class="modal__input"
-            placeholder="Description"
-            id="profile-description-input"
-            name="description"
-          />
+          <div class="modal__input-container">
+            <input
+              type="text"
+              class="modal__input"
+              id="profile-title-input"
+              placeholder="Name"
+              name="title"
+            />
+            <input
+              type="text"
+              class="modal__input"
+              placeholder="Description"
+              id="profile-description-input"
+              name="description"
+            />
+          </div>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- Add card Modal-->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="add-card-close-button"
+          type="button"
+        ></button>
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form" id="add-card-form">
+          <div class="modal__input-container">
+            <input
+              type="text"
+              class="modal__input_title"
+              placeholder="Title"
+              name="title"
+            />
+            <input
+              type="text"
+              class="modal__input_url"
+              placeholder="Image URL"
+              name="url"
+            />
+          </div>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
