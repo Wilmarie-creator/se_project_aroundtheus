@@ -43,10 +43,25 @@
   cursor: pointer;
 }
 
+.card__like-button_active {
+  background-image: url(../images/like-button-active.svg);
+}
+
 .card__like-button:hover {
   opacity: 0.5;
   cursor: pointer;
   /* border: 2px #000; */
+}
+
+.card__delete-button {
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  position: absolute;
+  color: #000;
+  width: 21px;
+  height: 18px;
+  display: flex;
+  border: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 382px) {
