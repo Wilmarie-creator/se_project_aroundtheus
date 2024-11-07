@@ -3,6 +3,7 @@
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 
 .card__image {
@@ -57,11 +58,14 @@
   background: transparent url(../images/Trash.svg) center no-repeat;
   position: absolute;
   color: #000;
-  width: 21px;
-  height: 18px;
+  width: 18px;
+  height: 19px;
   display: flex;
   border: none;
   cursor: pointer;
+  top: 15px;
+  /* flex-direction: column; */
+  right: 18px;
 }
 
 @media screen and (max-width: 382px) {
