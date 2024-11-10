@@ -140,7 +140,6 @@ function handleAddCardFormSubmit(e) {
   const link = (cardUrlInput.textContent = cardUrlInput.value);
   const cardData = { name, link };
   renderCard(cardData, cardsListELement);
-  const addModalForm = addCardModal.querySelector(".modal__form");
   addModalForm.reset();
   closePopup(addCardModal);
 }
