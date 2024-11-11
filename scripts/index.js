@@ -129,8 +129,6 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  const profileModalForm = profileEditModal.querySelector(".modal__form");
-  profileModalForm.reset();
   closePopup(profileEditModal);
 }
 
