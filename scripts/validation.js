@@ -1,10 +1,61 @@
+function showInputError(formElement, inputElement, { inputErrorClass }) {
+  //showInputError//
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+  inputElement.classList.add(inputErrorClass);
+  errorMessageElement.textContent = inputElement.validationMessage;
+  errorMessageElement.classList.add(inputErrorClass);
+}
+
+function hideInputError(formElement, inputElement, { inputErrorClass }) {
+  //showInputError//
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+  inputElement.classList.remove(inputErrorClass);
+  errorMessageElement.textContent = "";
+  errorMessageElement.classList.remove(inputErrorClass);
+
+  function checkInputValidity(formElement, inputElement, options) {
+    if (!inputElement.validity.valid) {
+      showInputError(formElement, inputElement, options);
+    } else {
+      hideInputError(formElement, inputElement, options);
+    }
+  }
+
+  function toggleButtonState(
+    inputElements,
+    submitButton,
+    { inactiveButtonClass }
+  ) {
+    const foundInvalid = false;
+
+    inputElements.forEach((inputElements) => {
+      if (!inputElement.validity.valid) {
+        foundInvalid = true;
+      }
+    });
+
+    if (foundInvalid) {
+      submitButton.classList.add(inactiveButtonClass);
+      submitButton.disabled = true;
+    } else {
+      submitButton.classList.remove(inactiveButtonClass);
+      submitButton.disabled = false;
+    }
+  }
+}
+
 function setEventListener(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
+  const submitButton = formElement.querySelector(".modal__button");
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
-      console.log("Input event triggered");
-      //   console.log(inputElement.validity);
+      checkInputValidity(formElement, inputElement.options);
+      toggleButtonState(inputElements, submitButton, options);
     });
   });
 }
