@@ -51,7 +51,7 @@
           <div class="modal__input-container">
             <input
               type="text"
-              class="modal__input modal__input_type_error"
+              class="modal__input"
               id="profile-title-input"
               placeholder="Name"
               name="title"
@@ -59,22 +59,20 @@
               minlength="2"
               maxlength="40"
             />
-            <span class="modal__error profile-title-input-error"
-              >Please fill out this field.</span
-            >
+            <span class="modal__error" id="profile-title-input-error"></span>
             <input
               type="text"
               class="modal__input"
               placeholder="Description"
               id="profile-description-input"
-              name="description"
               required
               minlength="2"
               maxlength="200"
             />
-            <span class="modal__error profile-title-input-error"
-              >Please fill out this field.</span
-            >
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
           </div>
           <button class="modal__button" type="submit">Save</button>
         </form>
@@ -93,28 +91,32 @@
           <div class="modal__input-container">
             <input
               type="text"
-              class="modal__input-title"
+              class="modal__input"
               placeholder="Title"
               name="title"
               required
               minlength="1"
               maxlength="30"
+              id="modal__input-title"
             />
-            <span class="modal__error profile-title-input-error"
-              >Please fill out this field.</span
-            >
+            <span class="modal__error" id="modal__input-title-error"></span>
             <input
-              type="text"
-              class="modal__input-url"
+              type="url"
+              class="modal__input"
               placeholder="Image URL"
               name="url"
               required
+              id="modal__input-url"
             />
-            <span class="modal__error profile-title-input-error"
-              >Please enter a web address.</span
-            >
+            <span class="modal__error" id="modal__input-url-error"></span>
           </div>
-          <button class="modal__button" type="submit">Save</button>
+          <button
+            class="modal__button modal__button_disable"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>

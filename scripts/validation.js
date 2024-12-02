@@ -5,47 +5,63 @@ function showInputError(formElement, inputElement, { inputErrorClass }) {
   );
   inputElement.classList.add(inputErrorClass);
   errorMessageElement.textContent = inputElement.validationMessage;
-  errorMessageElement.classList.add(inputErrorClass);
 }
 
 function hideInputError(formElement, inputElement, { inputErrorClass }) {
-  //showInputError//
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
   inputElement.classList.remove(inputErrorClass);
   errorMessageElement.textContent = "";
-  errorMessageElement.classList.remove(inputErrorClass);
+}
+function checkInputValidity(formElement, inputElement, options) {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, options);
+    return;
+  }
+  hideInputError(formElement, inputElement, options);
+}
 
-  function checkInputValidity(formElement, inputElement, options) {
-    if (!inputElement.validity.valid) {
-      showInputError(formElement, inputElement, options);
-    } else {
-      hideInputError(formElement, inputElement, options);
-    }
+function hasInvalidInput(inputList) {
+  return !inputList.every((input) => input.validity.valid);
+}
+
+//disableButton- add
+function disableButton(disableButton, inactiveButtonClass) {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
+}
+
+//enableButton-remove
+
+function enableButton(enableButton, inactiveButtonClass) {
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
+}
+
+function toggleButtonState(
+  inputElements,
+  submitButton,
+  { inactiveButtonClass }
+) {
+  //   const foundInvalid = false;
+
+  //   inputElements.forEach((inputElements) => {
+  //     if (!inputElements.validity.valid) {
+  //       foundInvalid = true;
+  //     }
+  //   });
+
+  if (hasInvalidInput(inputElements)) {
+    disableButton(disableButton, inactiveButtonClass);
+    submitButton.classList.add(inactiveButtonClass);
+    submitButton.disabled = true;
+    return;
   }
 
-  function toggleButtonState(
-    inputElements,
-    submitButton,
-    { inactiveButtonClass }
-  ) {
-    const foundInvalid = false;
-
-    inputElements.forEach((inputElements) => {
-      if (!inputElement.validity.valid) {
-        foundInvalid = true;
-      }
-    });
-
-    if (foundInvalid) {
-      submitButton.classList.add(inactiveButtonClass);
-      submitButton.disabled = true;
-    } else {
-      submitButton.classList.remove(inactiveButtonClass);
-      submitButton.disabled = false;
-    }
-  }
+  enableButton(enableButton, inactiveButtonClass);
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
 
 function setEventListener(formElement, options) {
@@ -54,7 +70,7 @@ function setEventListener(formElement, options) {
   const submitButton = formElement.querySelector(".modal__button");
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
-      checkInputValidity(formElement, inputElement.options);
+      checkInputValidity(formElement, inputElement, options);
       toggleButtonState(inputElements, submitButton, options);
     });
   });
@@ -85,6 +101,25 @@ function enableValidation(options) {
   });
 }
 
+const modals = document.querySelectorAll(".modal");
+
+document.addEventListener("keydown", closeModalEsc);
+
+function closeOverlay(e) {
+  if (e.target.classList.contains("modal")) {
+    modals.forEach((modal) => {
+      modals.addEventListener("mousedown", closeOverlay);
+      closePopup(e.target);
+    });
+  }
+}
+
+function closeModalEsc(e) {
+  if (e.key === "Escape") {
+    const modalOpened = document.querySelector(".modal_opened");
+    closePopup(modalOpened);
+  }
+}
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
