@@ -101,25 +101,6 @@ function enableValidation(options) {
   });
 }
 
-const modals = document.querySelectorAll(".modal");
-
-document.addEventListener("keydown", closeModalEsc);
-
-function closeOverlay(e) {
-  if (e.target.classList.contains("modal")) {
-    modals.forEach((modal) => {
-      modals.addEventListener("mousedown", closeOverlay);
-      closePopup(e.target);
-    });
-  }
-}
-
-function closeModalEsc(e) {
-  if (e.key === "Escape") {
-    const modalOpened = document.querySelector(".modal_opened");
-    closePopup(modalOpened);
-  }
-}
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",

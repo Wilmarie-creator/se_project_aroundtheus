@@ -76,12 +76,20 @@ const previewImageCloseButton =
   previewImageModal.querySelector(".modal__close");
 
 const addModalForm = addCardModal.querySelector("#add-card-form");
+const modals = [...document.querySelectorAll(".modal")];
+
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalEsc);
+}
+
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
   console.log("close");
+  document.removeEventListener("keydown", closeModalEsc);
 }
 
 function getCardElement(cardData) {
@@ -114,13 +122,25 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
-}
-
 function renderCard(cardData, cardsListELement) {
   const cardElement = getCardElement(cardData);
   cardsListELement.prepend(cardElement);
+}
+
+function closeOverlay(e) {
+  if (e.target.classList.contains("modal")) {
+    modals.forEach((modal) => {
+      modals.addEventListener("mousedown", closeOverlay);
+      closePopup(e.target);
+    });
+  }
+}
+
+function closeModalEsc(e) {
+  if (e.key === "Escape") {
+    const modalOpened = document.querySelector(".modal_opened");
+    closePopup(modalOpened);
+  }
 }
 /* -------------------------------------------------------------------------- */
 /*                                Event Handler                               */
@@ -171,4 +191,12 @@ addNewCardButton.addEventListener("click", (e) => {
 
 addCardCloseButton.addEventListener("click", () => {
   closePopup(addCardModal);
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (e) => {
+    if (e.target === modal) {
+      closePopup(modal);
+    }
+  });
 });

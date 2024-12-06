@@ -32,7 +32,6 @@
   background-color: transparent;
   background-size: contain;
   background-color: #000;
-
   cursor: pointer;
 }
 
@@ -93,6 +92,10 @@
   outline: none;
 }
 
+.modal__label {
+  position: relative;
+}
+
 .modal__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -135,7 +138,7 @@
   cursor: pointer;
   background-color: #000;
   color: #fff;
-  margin-top: 20px;
+  margin-top: 61px;
 }
 
 .modal__button:hover {
@@ -152,8 +155,10 @@
   line-height: 14.52px;
   font-weight: 400;
   font-family: "Inter", Arial, sans-serif;
-  top: 338px;
-  width: 164px;
+  top: calc(100% + 5px);
+  width: 100%;
+  position: absolute;
+  z-index: 1;
 }
 
 .modal__input_type_error {
