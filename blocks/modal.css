@@ -146,7 +146,10 @@
 }
 
 .modal__button_disabled {
-  color: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 1);
+  cursor: not-allowed;
+  opacity: 20%;
 }
 
 .modal__error {

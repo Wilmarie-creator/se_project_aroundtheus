@@ -17,7 +17,6 @@ function hideInputError(formElement, inputElement, { inputErrorClass }) {
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, options);
-    return;
   }
   hideInputError(formElement, inputElement, options);
 }
@@ -27,14 +26,15 @@ function hasInvalidInput(inputList) {
 }
 
 //disableButton- add
-function disableButton(disableButton, inactiveButtonClass) {
+function disableButton(submitButton, inactiveButtonClass) {
   submitButton.classList.add(inactiveButtonClass);
   submitButton.disabled = true;
+  return;
 }
 
 //enableButton-remove
 
-function enableButton(enableButton, inactiveButtonClass) {
+function enableButton(submitButton, inactiveButtonClass) {
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
 }
@@ -53,13 +53,13 @@ function toggleButtonState(
   //   });
 
   if (hasInvalidInput(inputElements)) {
-    disableButton(disableButton, inactiveButtonClass);
+    disableButton(submitButton, inactiveButtonClass);
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
     return;
   }
 
-  enableButton(enableButton, inactiveButtonClass);
+  enableButton(submitButton, inactiveButtonClass);
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
 }
