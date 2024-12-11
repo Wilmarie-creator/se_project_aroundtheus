@@ -1,9 +1,14 @@
-function showInputError(formElement, inputElement, { inputErrorClass }) {
+function showInputError(
+  formElement,
+  inputElement,
+  { inputErrorClass, errorClass }
+) {
   //showInputError//
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );
   inputElement.classList.add(inputErrorClass);
+  errorMessageElement.classList.add(errorClass);
   errorMessageElement.textContent = inputElement.validationMessage;
 }
 

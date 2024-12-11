@@ -47,7 +47,7 @@
   height: 330px;
   /* top: 18px; */
   left: 0px;
-  top: -165px;
+  top: -104px;
 }
 
 .modal__container-preview {
@@ -162,10 +162,15 @@
   width: 100%;
   position: absolute;
   z-index: 1;
+  opacity: 0;
 }
 
 .modal__input_type_error {
   border-bottom: solid 1px red;
+}
+
+.modal__error_visible {
+  opacity: 1;
 }
 
 @media screen and (max-width: 662px) {
