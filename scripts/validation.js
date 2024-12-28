@@ -61,13 +61,13 @@ function toggleButtonState(
   if (hasInvalidInput(inputElements)) {
     disableButton(submitButton, inactiveButtonClass);
     // submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
+    // submitButton.disabled = true;
     return;
   }
 
   enableButton(submitButton, inactiveButtonClass);
   // submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
+  // submitButton.disabled = false;
 }
 
 function setEventListener(formElement, options) {

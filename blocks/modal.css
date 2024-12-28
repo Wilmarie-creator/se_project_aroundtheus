@@ -109,6 +109,7 @@
   line-height: 16.94px;
   color: #000;
   margin: 0;
+  margin-top: 13px;
 }
 
 .modal__input-title {
@@ -138,7 +139,7 @@
   cursor: pointer;
   background-color: #000;
   color: #fff;
-  margin-top: 61px;
+  margin-top: 52px;
 }
 
 .modal__button:hover {
